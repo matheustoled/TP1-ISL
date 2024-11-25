@@ -1,24 +1,24 @@
 /*Combina o verificador de paridade e o mapeador de display.*/
 
 module Display(
-    input [4:0] E,       // Entradas E1-E5
-    input P,             // Bit de paridade
-    output [6:0] seg,    // Segmentos do display: A-G
-    output valid         // Validade da paridade
+    input [4:0] E,       //entradas E1-E5
+    input P,             //bit de paridade
+    output [6:0] seg,    //segmentos do display: A-G
+    output validade      //validade da paridade
 );
-    wire internal_valid; // Sinal interno para conectar os módulos
+    wire internal_validade; //sinal interno para conectar os módulos
 
-    ParityChecker checker (
+    VerificacaoParidade checker (
         .E(E), 
         .P(P), 
-        .valid(internal_valid)
+        .validade(internal_validade)
     );
 
-    DisplayMapper mapper (
+    MapeamentoDisplay mapper (
         .char(E), 
-        .valid(internal_valid), 
+        .validade(internal_validade), 
         .seg(seg)
     );
 
-    assign valid = internal_valid; // Passa o sinal de validade para fora do módulo
+    assign validade = internal_validade; //passa o sinal de validade para fora do módulo
 endmodule

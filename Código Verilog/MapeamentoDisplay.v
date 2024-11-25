@@ -1,16 +1,16 @@
 /*Este módulo usa as expressões booleanas fornecidas para ativar os segmentos apropriados.*/
 
-module DisplayMapper(
-    input [4:0] char,    // Código do caractere (E1-E5)
-    input valid,         // Sinal de paridade
-    output reg [6:0] seg // Segmentos do display: A-G
+module MapeamentoDisplay(
+    input [4:0] char,       //código do caractere (E1-E5)
+    input validade,         //sinal de paridade
+    output reg [6:0] seg    //segmentos do display: A-G
 );
     always @(*) begin
-        if (!valid) begin
-            // Exibir "E" para erro de paridade
+        if (!validade) begin
+            //caractere erro de paridade
             seg = 7'b1010111;
         end else begin
-            // Mapeamento dos caracteres
+            //mapeamento dos caracteres
             case (char)
                 5'b00000: seg = 7'b1011011;
                 5'b00001: seg = 7'b1110111;
@@ -33,7 +33,7 @@ module DisplayMapper(
                 5'b10010: seg = 7'b1001110;
                 5'b10011: seg = 7'b0001111;
                 
-                default: seg = 7'b0000000; // Display apagado
+                default: seg = 7'b0000000; //display apagado
             endcase
         end
     end

@@ -1,38 +1,40 @@
+/*Testbench.*/
+
 module Testbench;
-    reg [4:0] E;          // Entradas E1-E5
-    reg P;                // Bit de paridade
-    wire [6:0] seg;       // Segmentos do display
-    wire valid;           // Sinal de validade
+    reg [4:0] E;          //entradas E1-E5
+    reg P;                //bit de paridade
+    wire [6:0] seg;       //segmentos do display
+    wire validade;        //sinal de validade
 
     Display uut (
         .E(E), 
         .P(P), 
         .seg(seg), 
-        .valid(valid)
+        .validade(validade)
     );
 
-    // Adiciona comandos para gerar o arquivo VCD
+    //comandos para gerar o arquivo VCD
     initial begin
-        $dumpfile("simulation.vcd"); // Nome do arquivo de saída
-        $dumpvars(0, Testbench);     // Grava todas as variáveis do módulo Testbench
+        $dumpfile("simulacao_ondas.vcd");
+        $dumpvars(0, Testbench); //grava todas as variáveis do módulo Testbench
     end
 
-    initial begin
-        // Teste 1: Paridade correta
-        E = 5'b00001; P = 1'b0; #10; // Paridade correta (quantidade ímpar de 1)
-        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, valid, seg);
+    initial begin //Testes
+        // Teste 1:paridade correta
+        E = 5'b00001; P = 1'b0; #10; //paridade correta (quantidade ímpar de 1)
+        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, validade, seg);
 
-        // Teste 2: Paridade incorreta
-        E = 5'b00001; P = 1'b1; #10; // Paridade incorreta (quantidade par de 1)
-        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, valid, seg);
+        // Teste 2:paridade incorreta
+        E = 5'b00001; P = 1'b1; #10; //paridade incorreta (quantidade par de 1)
+        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, validade, seg);
 
         // Teste 3: Exibir caractere mapeado
-        E = 5'b00010; P = 1'b0; #10; // Paridade correta (quantidade ímpar de 1)
-        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, valid, seg);
+        E = 5'b00010; P = 1'b0; #10; //paridade correta (quantidade ímpar de 1)
+        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, validade, seg);
 
         // Teste 4: Entrada fora do intervalo
-        E = 5'b10101; P = 1'b0; #10; // Paridade correta (quantidade ímpar de 1)
-        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, valid, seg);
+        E = 5'b10101; P = 1'b0; #10; //paridade correta (quantidade ímpar de 1)
+        $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, validade, seg);
 
         $finish;
     end
