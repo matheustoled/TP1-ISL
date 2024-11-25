@@ -17,7 +17,7 @@ module Testbench;
         $dumpvars(0, Testbench);     // Grava todas as variáveis do módulo Testbench
     end
 
-    initial begin
+    initial begin//Testes
         // Teste 1: Paridade correta
         E = 5'b00001; P = 1'b0; #10; // Paridade correta (quantidade ímpar de 1)
         $display("E: %b, P: %b, Valid: %b, Seg: %b", E, P, valid, seg);
