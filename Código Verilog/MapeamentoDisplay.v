@@ -7,7 +7,7 @@ module DisplayMapper(
 );
     always @(*) begin
         if (!valid) begin
-            // Exibir "E" para erro de paridade
+            // Exibir para erro de paridade
             seg = 7'b1010111;
         end else begin
             // Mapeamento dos caracteres

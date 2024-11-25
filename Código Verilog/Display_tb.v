@@ -11,6 +11,12 @@ module Testbench;
         .valid(valid)
     );
 
+    // Adiciona comandos para gerar o arquivo VCD
+    initial begin
+        $dumpfile("simulation.vcd"); // Nome do arquivo de saída
+        $dumpvars(0, Testbench);     // Grava todas as variáveis do módulo Testbench
+    end
+
     initial begin
         // Teste 1: Paridade correta
         E = 5'b00001; P = 1'b0; #10; // Paridade correta (quantidade ímpar de 1)

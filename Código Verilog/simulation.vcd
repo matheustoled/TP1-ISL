@@ -1,0 +1,76 @@
+$date
+	Mon Nov 25 18:33:59 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module Testbench $end
+$var wire 1 ! valid $end
+$var wire 7 " seg [6:0] $end
+$var reg 5 # E [4:0] $end
+$var reg 1 $ P $end
+$scope module uut $end
+$var wire 5 % E [4:0] $end
+$var wire 1 $ P $end
+$var wire 1 ! valid $end
+$var wire 7 & seg [6:0] $end
+$var wire 1 ' internal_valid $end
+$scope module checker $end
+$var wire 5 ( E [4:0] $end
+$var wire 1 $ P $end
+$var reg 1 ' valid $end
+$upscope $end
+$scope module mapper $end
+$var wire 5 ) char [4:0] $end
+$var wire 1 ' valid $end
+$var reg 7 * seg [6:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1110111 *
+b1 )
+b1 (
+1'
+b1110111 &
+b1 %
+0$
+b1 #
+b1110111 "
+1!
+$end
+#10
+b1010111 "
+b1010111 &
+b1010111 *
+0!
+0'
+1$
+#20
+b110011 "
+b110011 &
+b110011 *
+1!
+1'
+0$
+b10 #
+b10 %
+b10 (
+b10 )
+#30
+b0 "
+b0 &
+b0 *
+b10101 #
+b10101 %
+b10101 (
+b10101 )
+#40
