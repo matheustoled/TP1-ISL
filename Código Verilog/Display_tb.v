@@ -6,7 +6,7 @@ module Testbench;
     wire [6:0] seg;       //segmentos do display
     wire validade;        //sinal de validade
 
-    Display uut (
+    Display teste (
         .E(E), 
         .P(P), 
         .seg(seg), 
