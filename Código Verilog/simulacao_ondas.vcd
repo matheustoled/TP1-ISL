@@ -1,5 +1,5 @@
 $date
-	Mon Nov 25 19:13:56 2024
+	Tue Nov 26 21:41:57 2024
 $end
 $version
 	Icarus Verilog
@@ -12,7 +12,7 @@ $var wire 1 ! validade $end
 $var wire 7 " seg [6:0] $end
 $var reg 5 # E [4:0] $end
 $var reg 1 $ P $end
-$scope module uut $end
+$scope module teste $end
 $var wire 5 % E [4:0] $end
 $var wire 1 $ P $end
 $var wire 1 ! validade $end
