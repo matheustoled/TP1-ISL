@@ -1,14 +1,4 @@
-/*Este módulo usa as expressões booleanas fornecidas para ativar os segmentos apropriados.*/
-
-module MapeamentoDisplay(
-    input [4:0] char,       //código do caractere (E1-E5)
-    input validade,         //sinal de paridade
-    output reg [6:0] seg    //segmentos do display: A-G
-);
-    always @(*) begin
-        if (!validade) begin
-            //caractere erro de paridade
-            seg = 7'b0101000;
+seg = 7'b0101000;
         end else begin
             //mapeamento dos caracteres
             case (char)
@@ -34,7 +24,3 @@ module MapeamentoDisplay(
                 5'b10011: seg = 7'b1110000;
                 
                 default: seg = 7'b1111111; //display apagado
-            endcase
-        end
-    end
-endmodule
